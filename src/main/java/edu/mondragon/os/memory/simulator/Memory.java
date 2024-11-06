@@ -11,14 +11,14 @@ public class Memory {
 
     protected final int printLineWidth = 80;
 
-    protected int speed;
+    protected int delay;
     protected int step;
     private String name;
     private List<Block> blocks;
 
-    public Memory(int size, int speed, String name) {
+    public Memory(int size, int delay, String name) {
         step = size / printLineWidth;
-        this.speed = speed;
+        this.delay = delay;
         this.name = name;
         blocks = new ArrayList<Block>();
         blocks.add(new Block(0, size - 1));
@@ -61,7 +61,7 @@ public class Memory {
         } catch (IllegalArgumentException e) {
         }
 
-        Thread.sleep(speed);
+        Thread.sleep(delay);
         System.out.println(this);
     }
 
@@ -108,7 +108,7 @@ public class Memory {
 
         blocks.add(blockPos, new Block(newGapStart, newGapEnd));
 
-        Thread.sleep(speed);
+        Thread.sleep(delay);
         System.out.println(this);
     }
 
@@ -116,7 +116,7 @@ public class Memory {
             throws InterruptedException, MemoryException {
 
         checkOwner(program, physical_address);
-        Thread.sleep(speed);
+        Thread.sleep(delay);
         System.out.println(
                 getStringAccess(physical_address, program.getName(), 'r'));
     }
@@ -125,7 +125,7 @@ public class Memory {
             throws InterruptedException, MemoryException {
 
         checkOwner(program, physical_address);
-        Thread.sleep(speed);
+        Thread.sleep(delay);
         System.out.println(
                 getStringAccess(physical_address, program.getName(), 'w'));
     }
