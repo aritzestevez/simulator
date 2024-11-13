@@ -15,8 +15,11 @@ public class Program extends Thread {
         this.pid = pid;
         this.api = api;
         rand = new Random();
-        section_sizes = new int[1];
-        section_sizes[0] = rand.nextInt(400, 1000);
+        section_sizes = new int[rand.nextInt(1, 4)];
+
+        for(int i = 0; i < section_sizes.length; i++){
+            section_sizes[i] = rand.nextInt(200, 400);
+        }
     }
 
     @Override
