@@ -10,7 +10,7 @@ public class ProgramSection {
         this.block = block;
         this.size = size;
     }
-
+    
     public int getNumber() {
         return number;
     }
