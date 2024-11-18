@@ -130,6 +130,7 @@ public class MemoryManager {
                 }
             }
             if(!foundGap){
+                secondMemoryTable.put(program, secondaryProgramSections);
                 throw new MemoryException("Program Section " + section.getNumber() + " from Program " + program.getPid() +
                                         " couldn't fit in secondary memory.");
             }
@@ -182,6 +183,7 @@ public class MemoryManager {
                 }
             }
             if(!foundGap){
+                memoryTable.put(program, programSections);
                 throw new MemoryException("Program Section " + section.getNumber() + " from Program " + program.getPid() +
                                         " couldn't fit in main memory.");
             }
